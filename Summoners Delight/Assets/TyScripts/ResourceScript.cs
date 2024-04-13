@@ -9,8 +9,10 @@ public class ResourceScript : MonoBehaviour
     public int capturedTowns;
     public int TotalTowns;
     public int plunder;
-    public int minionSpeed;
+    public int minionSpeedMult;
     public bool InSiege = false;
+    public bool[] townStates;
+    public string[] townIDs;
     public static ResourceScript instance { get; private set; }
     // Start is called before the first frame update
     private void Awake()
