@@ -1,3 +1,4 @@
+using Pathfinding.Util;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -42,11 +43,28 @@ public class MinionBase : MonoBehaviour
         }
     }
 
+    //have some basic decision making that will make the enemy prioritize the defenses and or currency. 
     public void SetDestination()
     {
-
+        //checks the distance between all objects via the ontriggerenter and then decides. 
+        float Distance = 10;
+        switch (Distance)
+        {
+            case < 0:
+                break;
+        }
     }
 
+    public int HandleHealth(int HealthChange)
+    {
+        CurrentHealth += HealthChange;
+        if(CurrentHealth <= 0)
+        {
+            //play death animation and sound
+            Destroy(this.gameObject);
+        }
 
+        return CurrentHealth;
+    }
 
 }
