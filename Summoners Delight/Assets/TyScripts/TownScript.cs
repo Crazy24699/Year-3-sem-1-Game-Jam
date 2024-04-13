@@ -9,12 +9,14 @@ public class TownScript : MonoBehaviour
     public float bodiesMult;
     public GameObject levelButton;
     public string townID;
+    public string siegeScene;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player"))
         {
             if (conquered == false)
             {
+                Debug.Log("entering");
                 levelButton.SetActive(true);
             }
         }
@@ -23,11 +25,19 @@ public class TownScript : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            Debug.Log("exiting");
             levelButton.SetActive(false);
         }
     }
-    public void beginLevel()
+    public void BeginSiege()
     {
-
+        ResourceScript.instance.currentBesiegedTown = this;
+    }
+    private void Start()
+    {
+        if(ResourceScript.instance.currentBesiegedTown == this)
+        {
+            ResourceScript.instance.currentBesiegedTown = null;
+        }
     }
 }

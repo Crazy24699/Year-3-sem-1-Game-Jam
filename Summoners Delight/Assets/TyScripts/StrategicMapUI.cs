@@ -7,21 +7,28 @@ public class StrategicMapUI : MonoBehaviour
 {
     public TMP_Text bodiesText;
     public TMP_Text bodiesIncrease;
+
+    public TMP_Text goldText;
+    public TMP_Text goldIncrease;
+
     public TMP_Text capturedTowns;
     public TMP_Text maxTowns;
-    public GameObject researchPanel;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    public GameObject researchPanel;
+    public ResearchManager researchManager;
+
     void Update()
     {
         bodiesText.text = Mathf.Round(ResourceScript.instance.bodies).ToString();
+        bodiesIncrease.text = " + " + ResourceScript.instance.bodiesPerSec.ToString();
+
+        goldText.text = Mathf.Round(ResourceScript.instance.gold).ToString();
+        goldIncrease.text =" + " + ResourceScript.instance.goldPerSec.ToString();
+
+        capturedTowns.text = ResourceScript.instance.capturedTowns.ToString();
+        maxTowns.text = " / " + ResourceScript.instance.TotalTowns.ToString();
     }
-    public void researchButtonPress()
+    public void ResearchButtonPress()
     {
         if(researchPanel.activeSelf == false)
         {

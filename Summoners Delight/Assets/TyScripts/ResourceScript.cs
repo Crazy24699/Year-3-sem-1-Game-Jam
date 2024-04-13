@@ -5,14 +5,22 @@ using UnityEngine;
 public class ResourceScript : MonoBehaviour
 {
     public float bodies;
-    public float bodyIncrease;
+    public float bodiesPerSec;
+    public int bodiesMult = 1;
+
+    public float gold;
+    public float goldPerSec = 0;
+    public int goldMult = 1;
+
     public int capturedTowns;
     public int TotalTowns;
-    public int plunder;
+
     public int minionSpeedMult;
-    public bool InSiege = false;
+
     public bool[] townStates;
     public string[] townIDs;
+
+    public TownScript currentBesiegedTown;
     public static ResourceScript instance { get; private set; }
     // Start is called before the first frame update
     private void Awake()
@@ -26,25 +34,29 @@ public class ResourceScript : MonoBehaviour
             instance = this;
         }
     }
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    private void FixedUpdate()
-    {
-        if(!InSiege)
-        {
-            bodies += bodyIncrease * Time.deltaTime;
-        }
-    }
     public void IncreaseBodiesRate(float increaseAmount)
     {
-        bodyIncrease += increaseAmount;
+        bodiesPerSec += increaseAmount;
+    }
+    public void IncreaseGoldRate(float increaseAmount)
+    {
+        goldPerSec += increaseAmount;
+    }
+    public void CalcBodies()
+    {
+        bodies = bodies + (bodiesMult * (bodiesPerSec * Time.deltaTime)); 
+    }
+    public void CalcGold()
+    {
+        gold = gold + (goldMult * (goldPerSec * Time.deltaTime));
+    }
+    public void IncreaseBodiesMult(int increaseAmount)
+    {
+        bodiesMult += increaseAmount;
+    }
+    public void IncreaseGoldMult(int increaseAmount)
+    {
+        goldMult += increaseAmount;
     }
 }
