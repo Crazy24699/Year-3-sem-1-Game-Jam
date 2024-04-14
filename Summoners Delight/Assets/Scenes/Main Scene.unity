@@ -1844,6 +1844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnUI: 0
+  OnInvalidSpot: 0
   WorldUpdate:
     m_PersistentCalls:
       m_Calls: []
@@ -3702,8 +3703,9 @@ GameObject:
   - component: {fileID: 2048465152}
   - component: {fileID: 2048465151}
   - component: {fileID: 2048465150}
+  - component: {fileID: 2048465153}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: InvalidSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3821,6 +3823,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2048465153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048465149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 777946426}
+          m_TargetAssemblyTypeName: UIFunction, Assembly-CSharp
+          m_MethodName: SetCursorState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 777946426}
+          m_TargetAssemblyTypeName: UIFunction, Assembly-CSharp
+          m_MethodName: SetCursorState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2055636140
 GameObject:
   m_ObjectHideFlags: 0
@@ -3936,7 +3983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAQIeyqgK0mZQIAACgFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzoWxIcShtxYI6YHAhHRy8UVYa6xBljySzOfw37uSbezSKRfkt2933z6tfSVcmgISq/RCc7ZUDMj3HnFn8q3XBt/gRHdKbvgFGs4XZzZzJOo5H9RyhXjo0ozKwWqe/JA74cgBgqXkqdL5nO1gqow1CKdUGMCQVtZlS4SuPXLCv/7EpZzxNIzc6YKnSdC74TEBaUG31IbY0CpWKRNB8wKYk9ySwyAaBO73Ume1gE+TOFydEQ6CyLVTQnBTiyP2XPjhN0UGGtz0jFOc1QsKBtEEkQz4LrNOejd9laYGbK1T0/OMa3Stqkt+qsrKnJp9JfZARelVPNXKqqrLfwj90IdTrfK3pnEYuCY248n+g54TamzH7C48a8WH3rQjFXu6FfCVgXxXC61KyTBodelSSwPDWft4n22aQbJv8UrqA1gW/78yN8PNj3+aCp5vvZdPFbARylvuFwI03s8vFOzXxdQlEHUqfhv4pLvuXtWBV66NxVA9pXTytqrUjkrm3jM3TWmnSkvwcC26AEmFPa+xjH28w4dYp+1D5JW6N6huXseaF+MhxcMtPwgeQmt1vF+WydRxCSZblVZwCa1oF3hHn6ZKymrFup40aZtSpzTppO1Kzv5eLZKm4Wg4moyHQZTQcTTqD9kYtknEwudoOHqhz8TvHpc4JxXrSmhtD96abItL3LPmw9JbaFr4dWeaHhf8kquO5VymapNoALmqKtyFg8Ym+G6yOeNo0Aas5dLfN7nGRKhkDyy+F4r9pPOT1TRuq8Sk4AdlHRKTqf+SxMTB911eazhwOLrmTbEbuf0BUEsDBBQAAAgIAAAQIex7IBZmbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrRSWpqhsZGxpamRgXlyoqm5sa5RimlqUrJ5iqGZuZGxRaKZUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAQIeyqgK0mZQIAACgFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAQIex7IBZmbQAAAHgAAAAJACQAAAAAAAAAAAAAALICAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAagMAAAAA
+    dataString: UEsDBBQAAAgIAAAQIewVxhsgbQIAACkFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzoWxzYehtxYI6SEJE9rJxRdhrbEGWfJIcoBk+O9dyTZ26PSEePt29+3Typ+ES1NCapXeaM6eFAPyfUDcmXwbdMFHONODkjv+AS3njTObOxL1nFdquUI8dGlGFWA1T3/Ig3DkAMFK8kzpYs0OsFTGGoQzKgxgSCvrsiVCnwNyxp/hwqVc8BTF7vSBp0UwuOIxBWlBd9SW2NJqViVTQYsSmJPckeez0SwOgmA6b7Km09FsgsA48mkSh2sywlEQu3ZKCG4accReSj/8rsxBg5uecYqzekHBKF4gkgM/5NZJ76e/ZJkB2+jU9LLiGl2r65KfqrayoOZYi32novIqJsHcK6urPv1DGIY+nGlVPLaNw8A1sTlPj6/0klJje2b34VUnPvSmnag40r2Atxzks9poVUmGQasrl1oZiFbd39tsyxzSY4fXUu/Aqvz/lbkZrn7881LwYu+9nNTATihvuV8I0Hg/v1CwXxfTlEDUqfhj4Dc99PeqCTxwbSyGmimlk7dXlXZUsvaeuWkqu1Ragocb0SVIKuxli2Xs/R3exXpt7yIP1L2gpnkTax/GXYqHO34Q3IW26nS7LJOr0xOY/KWygkvoRLvAM/q0VFLWK9b3pE3bVTqjaS/tUHH2dbVIloXjaLyYRkGc0mk8HkZsCvs0ZuEsjsZzOiN+97jEOanY1kIbe/DW+p5IXLT2yzLYaFr6fWeanjb8o1A9z7nM1C7VAPLlawkDGrvg42RrxtGhHVjLpb9w8pkQodIjsORWKPGjrs9W06SrkpCSvyvrkIQs/ackIQ6+LfNWwzuHk2veFruS619QSwMEFAAACAgAABAh7HsgFmZtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFJamqGxkbGlqZGBeXKiqbmxrlGKaWpSsnmKoZm5kbFFoplSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAABAh7BXGGyBtAgAAKQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABAh7HsgFmZtAAAAeAAAAAkAJAAAAAAAAAAAAAAAugIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAByAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -3950,13 +3997,13 @@ MonoBehaviour:
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
   logPathResults: 1
-  maxNearestNodeDistance: 100
+  maxNearestNodeDistance: 89.81
   scanOnStartup: 1
   fullGetNearestSearch: 0
   prioritizeGraphs: 0
   prioritizeGraphsLimit: 1
   colorSettings:
-    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.36078432}
     _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
     _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
     _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}

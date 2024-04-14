@@ -32,7 +32,6 @@ public class MinionSpawning : MonoBehaviour
         }
         PathFinder = FindObjectOfType<AstarPath>();
         GameManager.ManagerInstance.WorldUpdate.AddListener(() => PathFinder.Scan());
-        Debug.Log("riverbeds");
     }
 
     // Update is called once per frame
@@ -69,7 +68,7 @@ public class MinionSpawning : MonoBehaviour
 
     public IEnumerator SpawnDelay()
     {
-        if(!SpawningStarted )
+        if(!SpawningStarted || !GameManager.ManagerInstance.OnInvalidSpot)
         {
             SpawningStarted = true;
             for (int i = 0; i < SpawnNum; i++)
