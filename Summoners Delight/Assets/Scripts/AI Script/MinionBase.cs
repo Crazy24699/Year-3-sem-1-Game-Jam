@@ -27,6 +27,7 @@ public class MinionBase : MonoBehaviour
     public LayerMask AttackLayers;
 
     [SerializeField]protected AIDestinationSetter AIDest;
+    public MinionSpawning MinionSpawnScript;
 
     public void MinionStartup()
     {
@@ -41,9 +42,9 @@ public class MinionBase : MonoBehaviour
 
         AIDest.target = Destination;
 
+        SetDestination();
 
         SetupRan = true;
-        SetDestination();
     }
 
     public IEnumerator StartupStatusCheck()
@@ -61,6 +62,12 @@ public class MinionBase : MonoBehaviour
         {
             SetDestination();
         }
+
+        if (Destination == null)
+        {
+            Debug.Log("Church");
+        }
+
     }
 
     //have some basic decision making that will make the enemy prioritize the defenses and or currency. 
@@ -76,7 +83,7 @@ public class MinionBase : MonoBehaviour
         if (RayHit.collider != null)
         {
             Destination = RayHit.collider.transform;
-            //AIDest.target = Destination;
+            AIDest.target = Destination;
         }
 
         //checks the distance between all objects via the ontriggerenter and then decides. 
@@ -95,6 +102,7 @@ public class MinionBase : MonoBehaviour
         {
             //play death animation and sound
             Instantiate(DeathParticle, this.transform.position, Quaternion.identity);
+            MinionSpawnScript.SpawnedMinions.Remove(this.name);
             Destroy(this.gameObject);
         }
 

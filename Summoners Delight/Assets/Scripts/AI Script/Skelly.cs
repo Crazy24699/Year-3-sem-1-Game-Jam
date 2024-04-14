@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
 public class Skelly : MinionBase
 {
     public bool AttackStarted = false;
+
+    public GameObject Collisionref;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +25,23 @@ public class Skelly : MinionBase
             //CollisionObject.gameObject.GetComponent<WallHealth>().TakeDamage(WallDamage);
             StartCoroutine(AttackLoop(CollisionObject));
         }
+
+    }
+
+    private void OnCollisionExit2D(Collision2D CollisionObject)
+    {
+        if (CollisionObject.gameObject.CompareTag("Wall"))
+        {
+            AttackStarted = false;
+            StopCoroutine(AttackLoop(null));
+            Collisionref = null;
+
+        }
     }
 
     public IEnumerator AttackLoop(Collision2D CollisionObjectRef)
     {
+        Collisionref = CollisionObjectRef.gameObject;
         if (AttackStarted || Destination == null)
         {
             yield return null;
@@ -35,12 +52,22 @@ public class Skelly : MinionBase
         {
 
             yield return new WaitForSeconds(0.55f);
-            if (Destination != null)
+            if (Destination != null && AttackStarted )
             {
-                CollisionObjectRef.gameObject.GetComponent<WallHealth>().TakeDamage(WallDamage);
-            }
+                string ObjectTag = CollisionObjectRef.gameObject.tag;
 
-            
+                switch (ObjectTag)
+                {
+                    case "Last Target":
+                        CollisionObjectRef.gameObject.GetComponent<StrongHold>().TakeDamage(WallDamage);
+                        break;
+
+                    case "Wall":
+                        CollisionObjectRef.gameObject.GetComponent<WallHealth>().TakeDamage(WallDamage);
+                        break;
+                }
+                Debug.Log("you and i");
+            }
             i++;
 
             if (i == 3)

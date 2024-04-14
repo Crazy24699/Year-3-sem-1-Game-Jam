@@ -19,6 +19,8 @@ public class MinionSpawning : MonoBehaviour
 
     public Camera PlayerCamera;
 
+    public HashSet<string> SpawnedMinions = new HashSet<string>();
+
     [SerializeField]protected bool SpawningStarted = false;
 
     // Start is called before the first frame update
@@ -41,13 +43,16 @@ public class MinionSpawning : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (!SpawningStarted)
+            if (!SpawningStarted && CurrentBodies > 0) 
             {
                 SpawningCords = MouseCords;
                 StartCoroutine(SpawnDelay());
             }
         }
-
+        if (CurrentBodies <= 0 && SpawnedMinions.Count == 0) 
+        {
+            GameManager.ManagerInstance.PlayerLoss.Invoke();
+        }
     }
 
     public IEnumerator SpawnDelay()
@@ -59,8 +64,11 @@ public class MinionSpawning : MonoBehaviour
             {
                 Debug.Log("love Bites");
                 SelectedMinion.transform.position = new Vector3(SpawningCords.x, SpawningCords.y, 0);
-                //GameObject SpawnedMinion = Instantiate(SelectedMinion, SpawningCords, Quaternion.identity);
-                //SpawnedMinion.GetComponent<MinionBase>().MinionStartup();
+                GameObject SpawnedMinion = Instantiate(SelectedMinion, SpawningCords, Quaternion.identity);
+                SpawnedMinion.name = "Minion " + SpawnedMinions.Count;
+                SpawnedMinions.Add(SpawnedMinion.name);
+                SpawnedMinion.GetComponent<MinionBase>().MinionStartup();
+                SpawnedMinion.GetComponent<MinionBase>().MinionSpawnScript = this;
                 yield return new WaitForSeconds(0.5f);
             }
 

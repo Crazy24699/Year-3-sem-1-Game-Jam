@@ -9,9 +9,9 @@ public class GameManager : MonoBehaviour
 
     public static GameManager ManagerInstance;
 
-
     //happens when an obstacle goes down and the AI needs to change its behaviour 
     public UnityEvent WorldUpdate = new UnityEvent();
+    public UnityEvent PlayerLoss = new UnityEvent();
 
     // Start is called before the first frame update
     void Start()
