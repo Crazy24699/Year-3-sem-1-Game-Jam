@@ -1,3 +1,4 @@
+using Pathfinding;
 using Pathfinding.Util;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,6 +23,8 @@ public class MinionBase : MonoBehaviour
     protected Rigidbody2D RB2D;
     public GameObject DeathParticle;
 
+    protected AIDestinationSetter AIDest;
+
     public void MinionStartup()
     {
         RB2D = TryGetComponent<Rigidbody2D>(out RB2D)
@@ -29,8 +32,11 @@ public class MinionBase : MonoBehaviour
             : this.AddComponent<Rigidbody2D>();
         RB2D.gravityScale = 0;
         RB2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+        CurrentHealth = MaxHealth;
 
+        AIDest = GetComponent<AIDestinationSetter>();
 
+        AIDest.target = Destination;
         SetupRan = true;
     }
 

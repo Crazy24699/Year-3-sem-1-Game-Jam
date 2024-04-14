@@ -20,6 +20,7 @@ public class WallHealth : MonoBehaviour
         CurrentHealth -= Damage;
         if (CurrentHealth <= 0)
         {
+            GameManager.ManagerInstance.WorldUpdate.Invoke();
             //reference the script for pathfinding and have it run a updated scan on what is walkable and what isnt
             Destroy(this.gameObject);
             return CurrentHealth = 0;

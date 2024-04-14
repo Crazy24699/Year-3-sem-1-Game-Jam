@@ -7,8 +7,7 @@ using UnityEngine.Events;
 public class MinionSpawning : MonoBehaviour
 {
     public GameObject SelectedMinion;
-
-
+    [SerializeField]protected AstarPath PathFinder;
 
     protected int MaxStartingBodies;
     public int CurrentBodies;
@@ -29,8 +28,8 @@ public class MinionSpawning : MonoBehaviour
         {
             SpawnNum = 10;
         }
-
-
+        PathFinder = FindObjectOfType<AstarPath>();
+        GameManager.ManagerInstance.WorldUpdate.AddListener(() => PathFinder.Scan());
     }
 
     // Update is called once per frame

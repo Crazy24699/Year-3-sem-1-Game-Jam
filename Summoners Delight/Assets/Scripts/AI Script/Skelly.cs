@@ -9,7 +9,7 @@ public class Skelly : MinionBase
     // Start is called before the first frame update
     void Start()
     {
-        WallDamage = 9;
+        WallDamage = 59;
 
     }
 
@@ -25,7 +25,7 @@ public class Skelly : MinionBase
 
     public IEnumerator AttackLoop(Collision2D CollisionObjectRef)
     {
-        if (AttackStarted)
+        if (AttackStarted || Destination == null)
         {
             yield return null;
         }
@@ -33,9 +33,16 @@ public class Skelly : MinionBase
         AttackStarted = true;
         for (int i = 0; i < 3; )
         {
+
             yield return new WaitForSeconds(0.55f);
-            CollisionObjectRef.gameObject.GetComponent<WallHealth>().TakeDamage(WallDamage);
+            if (Destination != null)
+            {
+                CollisionObjectRef.gameObject.GetComponent<WallHealth>().TakeDamage(WallDamage);
+            }
+
+            
             i++;
+
             if (i == 3)
             {
                 HandleHealth(CurrentHealth);
