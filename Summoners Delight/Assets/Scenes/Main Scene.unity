@@ -306,7 +306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 109258279}
   - component: {fileID: 109258280}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,9 +527,9 @@ GameObject:
   - component: {fileID: 180067089}
   - component: {fileID: 180067088}
   - component: {fileID: 180067087}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Defender Tower (1)
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -551,6 +551,8 @@ MonoBehaviour:
   FireballRef: {fileID: 8096413922804893818, guid: c5543c093c43cc947b120fa04f3ba0fb, type: 3}
   FirePoint: {fileID: 1725910256}
   AngleOffset: 180
+  MaxHeath: 0
+  CurrentHealth: 0
   CanAttack: 1
 --- !u!61 &180067088
 BoxCollider2D:
@@ -584,7 +586,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.5126011, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -595,7 +597,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.0252018, y: 1}
   m_EdgeRadius: 0
 --- !u!60 &180067089
 PolygonCollider2D:
@@ -1431,7 +1433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 713135055}
   - component: {fileID: 713135056}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2462,9 +2464,9 @@ GameObject:
   - component: {fileID: 1325842149}
   - component: {fileID: 1325842148}
   - component: {fileID: 1325842150}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Defender Tower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2570,7 +2572,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.5239893, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2581,7 +2583,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.0479789, y: 1}
   m_EdgeRadius: 0
 --- !u!60 &1325842149
 PolygonCollider2D:
@@ -2651,6 +2653,8 @@ MonoBehaviour:
   FireballRef: {fileID: 8096413922804893818, guid: c5543c093c43cc947b120fa04f3ba0fb, type: 3}
   FirePoint: {fileID: 1415855672}
   AngleOffset: 180
+  MaxHeath: 50
+  CurrentHealth: 0
   CanAttack: 1
 --- !u!1 &1415855671
 GameObject:
@@ -2661,7 +2665,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1415855672}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2683,6 +2687,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1325842147}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!1001 &1425563593
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1222513324708826604, guid: 487f4ba7335a1da4b9e476326683800e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.129939
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222513324708826604, guid: 487f4ba7335a1da4b9e476326683800e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.0681608
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222513324708826604, guid: 487f4ba7335a1da4b9e476326683800e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222513324708826604, guid: 487f4ba7335a1da4b9e476326683800e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222513324708826604, guid: 487f4ba7335a1da4b9e476326683800e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222513324708826604, guid: 487f4ba7335a1da4b9e476326683800e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222513324708826604, guid: 487f4ba7335a1da4b9e476326683800e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222513324708826604, guid: 487f4ba7335a1da4b9e476326683800e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222513324708826604, guid: 487f4ba7335a1da4b9e476326683800e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222513324708826604, guid: 487f4ba7335a1da4b9e476326683800e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864005453557782905, guid: 487f4ba7335a1da4b9e476326683800e, type: 3}
+      propertyPath: m_Name
+      value: Minion
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864005453557782905, guid: 487f4ba7335a1da4b9e476326683800e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 487f4ba7335a1da4b9e476326683800e, type: 3}
 --- !u!1 &1455878662
 GameObject:
   m_ObjectHideFlags: 0
@@ -2693,7 +2758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1455878663}
   - component: {fileID: 1455878664}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2829,7 +2894,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1725910256}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3586,7 +3651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2055636141}
   - component: {fileID: 2055636142}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3880,3 +3945,4 @@ SceneRoots:
   - {fileID: 284062014}
   - {fileID: 1990924872}
   - {fileID: 949588846}
+  - {fileID: 1425563593}
