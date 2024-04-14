@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Minion
   - Wall
+  - Last Target
   layers:
   - Default
   - TransparentFX
