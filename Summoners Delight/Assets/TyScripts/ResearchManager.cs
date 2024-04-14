@@ -60,7 +60,7 @@ public class ResearchManager : MonoBehaviour
     {
         for(int i = 0; i < researchButtons.Length; i++)
         {
-            Debug.Log(i);
+            //Debug.Log(i);
             if(ResourceScript.instance.gold < buyableTech[i].goldCost)
             {
                 researchButtons[i].SetActive(false);

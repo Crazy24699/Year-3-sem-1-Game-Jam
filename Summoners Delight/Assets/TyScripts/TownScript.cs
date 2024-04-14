@@ -11,6 +11,10 @@ public class TownScript : MonoBehaviour
     public GameObject levelButton;  //the button for loading the siege scene
     public string townID;           //the unique ID of the town
     public string siegeScene;       //the name of the scene used when the attack button is pressed
+    public Sprite city;
+    public Sprite conqueredCity;
+    public SpriteRenderer renderer;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player"))
@@ -28,6 +32,14 @@ public class TownScript : MonoBehaviour
         {
             Debug.Log("exiting");
             levelButton.SetActive(false);
+        }
+        if(conquered == true)
+        {
+            renderer.sprite = conqueredCity;
+        }
+        else
+        {
+            renderer.sprite = city;
         }
     }
     public void BeginSiege()
