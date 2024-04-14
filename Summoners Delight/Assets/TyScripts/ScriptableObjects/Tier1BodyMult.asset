@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e1741c4cc8b8294aaba8c45970ae221, type: 3}
-  m_Name: Tier1BodyRate
+  m_Name: Tier1BodyMult
   m_EditorClassIdentifier: 
-  name: Effecient Grave Digging 1
-  description: Through the use of effecient grave digging the number of bodies exhumed
-    increases
-  artwork: {fileID: 21300000, guid: 9e522bde1ec6d3140bab9a38ff92c090, type: 3}
-  goldCost: 10
+  name: Necromantic moon
+  description: Under a necromantic moon, the effectiveness of ritual spells is increased
+  artwork: {fileID: 0}
+  goldCost: 100
   effectValue: 0.2
-  increaseType: 1
+  increaseType: 0

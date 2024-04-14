@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ResourceScript : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class ResourceScript : MonoBehaviour
     public bool[] townStates;
     public string[] townIDs;
 
+    public bool lost = false;
+    public bool won = false;
+
     public TownScript currentBesiegedTown;
     public static ResourceScript instance { get; private set; }
     // Start is called before the first frame update
@@ -33,6 +37,10 @@ public class ResourceScript : MonoBehaviour
         {
             instance = this;
         }
+    }
+    private void Update()
+    {
+        GameOver();
     }
 
     public void IncreaseBodiesRate(float increaseAmount)
@@ -58,5 +66,27 @@ public class ResourceScript : MonoBehaviour
     public void IncreaseGoldMult(int increaseAmount)
     {
         goldMult += increaseAmount;
+    }
+    public void GameOver()
+    {
+        if(bodies == 0)
+        {
+            if(lost == false)
+            {
+                lost = true;
+                SceneManager.LoadScene("GameOverScene");
+            }
+        }
+    }
+    public void WinGame()
+    {
+        if(capturedTowns == TotalTowns)
+        {
+            if(won == false)
+            {
+                won = true;
+                SceneManager.LoadScene("WinScene");
+            }
+        }
     }
 }

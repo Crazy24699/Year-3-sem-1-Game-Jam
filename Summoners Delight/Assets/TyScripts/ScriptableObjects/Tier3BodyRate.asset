@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Effecient Grave Digging 3
   description: Through the use of effecient grave digging the number of bodies exhumed
     increases
-  artwork: {fileID: 21300000, guid: 65726ee848c155e469e9bc1eb0a8e85f, type: 3}
+  artwork: {fileID: 21300000, guid: 9e522bde1ec6d3140bab9a38ff92c090, type: 3}
   goldCost: 500
   effectValue: 0.5
   increaseType: 1
