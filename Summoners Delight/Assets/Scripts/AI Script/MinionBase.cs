@@ -96,7 +96,7 @@ public class MinionBase : MonoBehaviour
         {
             //play death animation and sound
             Instantiate(DeathParticle, this.transform.position, Quaternion.identity);
-            MinionSpawnScript.SpawnedMinions.Remove(this.name);
+            MinionSpawnScript.SpawnedMinions.Remove(this.gameObject);
             Destroy(this.gameObject);
         }
 

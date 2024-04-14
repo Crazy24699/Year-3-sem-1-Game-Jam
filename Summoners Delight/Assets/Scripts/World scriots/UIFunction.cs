@@ -22,6 +22,7 @@ public class UIFunction : MonoBehaviour
     void Start()
     {
         StartCoroutine(FindScriptDelay());
+        
     }
 
     // Update is called once per frame
@@ -34,6 +35,7 @@ public class UIFunction : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         SpawningScript = FindObjectOfType<MinionSpawning>();
+        SpawningScript.SpawnNum = 1;
     }
 
     public void SetMinion(int Minion)
@@ -47,6 +49,11 @@ public class UIFunction : MonoBehaviour
         {
             SpawningScript.SpawnNum = 1;
         }
+    }
+
+    public void SetCursorState(bool State)
+    {
+        GameManager.ManagerInstance.OnUI = State;
     }
 
 }

@@ -9,26 +9,26 @@ public class MinionSpawning : MonoBehaviour
     public GameObject SelectedMinion;
     [SerializeField]protected AstarPath PathFinder;
 
+    //max number of minions that can be spawned
     protected int MaxStartingBodies;
     public int CurrentBodies;
-    //max number of minions that can be spawned
-    [HideInInspector]public int SpawnNum;
+    public int SpawnNum;
 
     public Vector3 SpawningCords;
     public Vector2 MouseCords;
 
     public Camera PlayerCamera;
 
-    public HashSet<string> SpawnedMinions = new HashSet<string>();
+    public HashSet<GameObject> SpawnedMinions = new HashSet<GameObject>();
 
     [SerializeField]protected bool SpawningStarted = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(SpawnNum == 0)
+        if(CurrentBodies == 0)
         {
-            SpawnNum = 10;
+            CurrentBodies = 10;
         }
         PathFinder = FindObjectOfType<AstarPath>();
         GameManager.ManagerInstance.WorldUpdate.AddListener(() => PathFinder.Scan());
@@ -43,6 +43,10 @@ public class MinionSpawning : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            if (GameManager.ManagerInstance.OnUI)
+            {
+                return;
+            }
             if (!SpawningStarted && CurrentBodies > 0) 
             {
                 SpawningCords = MouseCords;
@@ -55,25 +59,36 @@ public class MinionSpawning : MonoBehaviour
         }
     }
 
+    public void UpdateMinionAttack()
+    {
+        foreach (var Minion in SpawnedMinions)
+        {
+            Minion.GetComponent<MinionBase>().StopAllCoroutines();
+        }
+    }
+
     public IEnumerator SpawnDelay()
     {
         if(!SpawningStarted )
         {
             SpawningStarted = true;
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < SpawnNum; i++)
             {
-                Debug.Log("love Bites");
+
                 SelectedMinion.transform.position = new Vector3(SpawningCords.x, SpawningCords.y, 0);
+
                 GameObject SpawnedMinion = Instantiate(SelectedMinion, SpawningCords, Quaternion.identity);
-                SpawnedMinion.name = "Minion " + SpawnedMinions.Count;
-                SpawnedMinions.Add(SpawnedMinion.name);
+                SpawnedMinion.name = "Minion " + CurrentBodies;
+                SpawnedMinions.Add(SpawnedMinion);
+
                 SpawnedMinion.GetComponent<MinionBase>().MinionStartup();
                 SpawnedMinion.GetComponent<MinionBase>().MinionSpawnScript = this;
-                yield return new WaitForSeconds(0.5f);
+                CurrentBodies--;
+                yield return new WaitForSeconds(0.25f);
             }
 
         }
-        yield return new WaitForSeconds(0.5f);
+        //yield return new WaitForSeconds(0.25f);
         SpawningStarted = false;
     }
 
