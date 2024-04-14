@@ -54,6 +54,7 @@ public class UIFunction : MonoBehaviour
     public void SetCursorState(bool State)
     {
         GameManager.ManagerInstance.OnUI = State;
+        GameManager.ManagerInstance.OnInvalidSpot = State;
     }
 
 }

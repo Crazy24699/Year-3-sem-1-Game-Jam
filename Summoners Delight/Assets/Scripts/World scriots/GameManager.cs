@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public bool OnUI = false;
+    public bool OnInvalidSpot = false;
     public static GameManager ManagerInstance;
 
     //happens when an obstacle goes down and the AI needs to change its behaviour 
