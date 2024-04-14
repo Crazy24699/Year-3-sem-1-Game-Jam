@@ -3,25 +3,17 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+public class Fireball : ProjectileBase
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D CollisionObject)
     {
         if (CollisionObject.CompareTag("Minion"))
         {
-            CollisionObject.GetComponent<MinionBase>();
+            CollisionObject.GetComponent<MinionBase>().HandleHealth(-Damage);
+            Destroy(this.gameObject);
         }
     }
 

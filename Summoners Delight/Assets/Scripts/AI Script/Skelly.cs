@@ -10,12 +10,7 @@ public class Skelly : MinionBase
     void Start()
     {
         WallDamage = 9;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnCollisionEnter2D(Collision2D CollisionObject)
@@ -43,7 +38,7 @@ public class Skelly : MinionBase
             i++;
             if (i == 3)
             {
-                Destroy(this.gameObject);
+                HandleHealth(CurrentHealth);
             }
         }
     }

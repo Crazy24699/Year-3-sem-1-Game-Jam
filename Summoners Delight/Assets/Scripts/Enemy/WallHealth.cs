@@ -7,6 +7,8 @@ public class WallHealth : MonoBehaviour
     const int MaxHealth = 50;
     public int CurrentHealth;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {

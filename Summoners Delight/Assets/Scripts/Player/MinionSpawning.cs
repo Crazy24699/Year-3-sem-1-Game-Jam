@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MinionSpawning : MonoBehaviour
 {
     public GameObject SelectedMinion;
 
+
+
     protected int MaxStartingBodies;
     public int CurrentBodies;
+    //max number of minions that can be spawned
     [HideInInspector]public int SpawnNum;
 
     public Vector3 SpawningCords;
@@ -21,7 +25,12 @@ public class MinionSpawning : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(SpawnNum == 0)
+        {
+            SpawnNum = 10;
+        }
+
+
     }
 
     // Update is called once per frame

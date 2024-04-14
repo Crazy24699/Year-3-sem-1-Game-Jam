@@ -7,7 +7,7 @@ using UnityEngine;
 public class MinionBase : MonoBehaviour
 {
 
-    protected int MaxHealth;
+    [SerializeField ]protected int MaxHealth;
     public int CurrentHealth;
     public int WallDamage;
     const int WaitTime=5;
@@ -20,7 +20,7 @@ public class MinionBase : MonoBehaviour
 
     public Transform Destination;
     protected Rigidbody2D RB2D;
-
+    public GameObject DeathParticle;
 
     public void MinionStartup()
     {
@@ -61,6 +61,7 @@ public class MinionBase : MonoBehaviour
         if(CurrentHealth <= 0)
         {
             //play death animation and sound
+            Instantiate(DeathParticle, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
 
