@@ -922,7 +922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 234458805}
+  target: {fileID: 0}
 --- !u!50 &196866700
 Rigidbody2D:
   serializedVersion: 4
@@ -1001,8 +1001,14 @@ MonoBehaviour:
   CurrentHealth: 0
   WallDamage: 9
   CurrentMoveSpeed: 0
-  Destination: {fileID: 234458805}
+  SetupRan: 0
+  Destination: {fileID: 0}
+  FinalDestination: {fileID: 0}
   DeathParticle: {fileID: 3588803570721945656, guid: 8e8e5174a1aa7344e96e77af9a99ab32, type: 3}
+  AttackLayers:
+    serializedVersion: 2
+    m_Bits: 384
+  AIDest: {fileID: 0}
   AttackStarted: 0
 --- !u!1 &234458804
 GameObject:
@@ -2116,8 +2122,14 @@ MonoBehaviour:
   CurrentHealth: 0
   WallDamage: 100
   CurrentMoveSpeed: 0
+  SetupRan: 0
   Destination: {fileID: 0}
+  FinalDestination: {fileID: 0}
   DeathParticle: {fileID: 0}
+  AttackLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  AIDest: {fileID: 0}
   AttackStarted: 0
 --- !u!114 &1205576249
 MonoBehaviour:
