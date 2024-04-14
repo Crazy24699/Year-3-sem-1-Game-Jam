@@ -17,13 +17,16 @@ public class MinionBase : MonoBehaviour
     protected float BaseMoveSpeed;
     public float CurrentMoveSpeed;
 
-    protected bool SetupRan = false;
+    [SerializeField] protected bool SetupRan = false;
 
     public Transform Destination;
+    [SerializeField]protected Transform FinalDestination;
     protected Rigidbody2D RB2D;
     public GameObject DeathParticle;
 
-    protected AIDestinationSetter AIDest;
+    public LayerMask AttackLayers;
+
+    [SerializeField]protected AIDestinationSetter AIDest;
 
     public void MinionStartup()
     {
@@ -37,7 +40,10 @@ public class MinionBase : MonoBehaviour
         AIDest = GetComponent<AIDestinationSetter>();
 
         AIDest.target = Destination;
+
+
         SetupRan = true;
+        SetDestination();
     }
 
     public IEnumerator StartupStatusCheck()
@@ -49,9 +55,30 @@ public class MinionBase : MonoBehaviour
         }
     }
 
+    protected void FixedUpdate()
+    {
+        if(Destination == null && SetupRan)
+        {
+            SetDestination();
+        }
+    }
+
     //have some basic decision making that will make the enemy prioritize the defenses and or currency. 
     public void SetDestination()
     {
+        if(FinalDestination == null)
+        {
+            FinalDestination = GameObject.FindGameObjectWithTag("Last Target").transform;
+        }
+        Vector2 Direction=FinalDestination.position-this.transform.position;
+        RaycastHit2D RayHit = Physics2D.Raycast(this.transform.position, Direction, 500, AttackLayers);
+
+        if (RayHit.collider != null)
+        {
+            Destination = RayHit.collider.transform;
+            //AIDest.target = Destination;
+        }
+
         //checks the distance between all objects via the ontriggerenter and then decides. 
         float Distance = 10;
         switch (Distance)

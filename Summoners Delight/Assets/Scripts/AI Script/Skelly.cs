@@ -10,7 +10,7 @@ public class Skelly : MinionBase
     void Start()
     {
         WallDamage = 59;
-
+        MinionStartup();
     }
 
     private void OnCollisionEnter2D(Collision2D CollisionObject)
