@@ -131,6 +131,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1486498451}
     m_Modifications:
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: townID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: bodiesMult
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: availableGold
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4886291136216749641, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 49.4
@@ -322,6 +334,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1486498451}
     m_Modifications:
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: townID
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: bodiesMult
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: availableGold
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4886291136216749641, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -56.8
@@ -598,6 +622,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1486498451}
     m_Modifications:
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: townID
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: bodiesMult
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: availableGold
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4886291136216749641, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -95.3
@@ -776,6 +812,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1486498451}
     m_Modifications:
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: townID
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: bodiesMult
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: availableGold
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4886291136216749641, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.2
@@ -2427,6 +2475,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1486498451}
     m_Modifications:
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: townID
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: bodiesMult
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: availableGold
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4886291136216749641, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -3741,7 +3801,7 @@ MonoBehaviour:
   horde: {fileID: 1260017307}
   mouseToWorld: {x: 0, y: 0}
   hordepos: {x: 0, y: 0}
-  hordeSpeed: 5
+  hordeSpeed: 10
 --- !u!50 &1260017309
 Rigidbody2D:
   serializedVersion: 4
@@ -4403,9 +4463,7 @@ MonoBehaviour:
   goldMult: 1
   capturedTowns: 0
   TotalTowns: 5
-  minionSpeedMult: 0
   townStates: 
-  townIDs: []
   lost: 0
   won: 0
   currentBesiegedTown: {fileID: 0}
@@ -5743,6 +5801,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1486498451}
     m_Modifications:
     - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: townID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
       propertyPath: bodiesMult
       value: 0.1
       objectReference: {fileID: 0}
@@ -6091,6 +6153,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1486498451}
     m_Modifications:
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: townID
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: bodiesMult
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: availableGold
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4886291136216749641, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.1
@@ -6156,6 +6230,18 @@ PrefabInstance:
     - target: {fileID: 1362619002873432475, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
       propertyPath: m_text
       value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: townID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: bodiesMult
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469551764127670945, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
+      propertyPath: availableGold
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3522681171284615462, guid: 16f586fdd12f475479cfe85b40ff367c, type: 3}
       propertyPath: m_SortingOrder
