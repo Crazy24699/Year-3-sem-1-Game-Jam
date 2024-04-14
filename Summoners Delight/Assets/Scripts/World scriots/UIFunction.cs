@@ -33,7 +33,7 @@ public class UIFunction : MonoBehaviour
 
     public IEnumerator FindScriptDelay()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.10f);
         SpawningScript = FindObjectOfType<MinionSpawning>();
         SpawningScript.SpawnNum = 1;
     }
