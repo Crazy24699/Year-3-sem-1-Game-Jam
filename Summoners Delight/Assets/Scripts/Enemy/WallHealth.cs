@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallHealth : MonoBehaviour
 {
-    const int MaxHealth = 50;
+    const int MaxHealth = 100;
     public int CurrentHealth;
 
     

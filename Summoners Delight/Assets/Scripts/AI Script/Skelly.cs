@@ -19,7 +19,7 @@ public class Skelly : MinionBase
 
     private void OnCollisionEnter2D(Collision2D CollisionObject)
     {
-        if (CollisionObject.gameObject.CompareTag("Wall"))
+        if (CollisionObject.gameObject.CompareTag("Wall") || CollisionObject.gameObject.CompareTag("Tower"))
         {
             Debug.Log("ran");
             //CollisionObject.gameObject.GetComponent<WallHealth>().TakeDamage(WallDamage);
@@ -28,9 +28,17 @@ public class Skelly : MinionBase
 
     }
 
+    private void OnTriggerEnter2D(Collider2D CollisionObject)
+    {
+        if (CollisionObject.CompareTag("Tower"))
+        {
+            Destination = CollisionObject.transform;
+            AIDest.target = Destination;
+        }
+    }
     private void OnCollisionExit2D(Collision2D CollisionObject)
     {
-        if (CollisionObject.gameObject.CompareTag("Wall"))
+        if (CollisionObject.gameObject.CompareTag("Wall") || CollisionObject.gameObject.CompareTag("Tower"))
         {
             AttackStarted = false;
             StopCoroutine(AttackLoop(null));
@@ -64,6 +72,10 @@ public class Skelly : MinionBase
 
                     case "Wall":
                         CollisionObjectRef.gameObject.GetComponent<WallHealth>().TakeDamage(WallDamage);
+                        break;
+
+                    case "Tower":
+                        CollisionObjectRef.gameObject.GetComponent<TowerDefender>().TakeDamage(WallDamage);
                         break;
                 }
                 Debug.Log("you and i");

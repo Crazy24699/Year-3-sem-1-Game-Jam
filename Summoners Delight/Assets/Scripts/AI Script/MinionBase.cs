@@ -86,13 +86,7 @@ public class MinionBase : MonoBehaviour
             AIDest.target = Destination;
         }
 
-        //checks the distance between all objects via the ontriggerenter and then decides. 
-        float Distance = 10;
-        switch (Distance)
-        {
-            case < 0:
-                break;
-        }
+        
     }
 
     public int HandleHealth(int HealthChange)

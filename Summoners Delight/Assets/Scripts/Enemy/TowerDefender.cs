@@ -15,6 +15,9 @@ public class TowerDefender : MonoBehaviour
     protected float RotationSpeed = 180f;
     public float AngleOffset;
 
+    public int MaxHeath;
+    public int CurrentHealth;
+
     [SerializeField]protected bool CanAttack = true;
 
     // Start is called before the first frame update
@@ -27,6 +30,7 @@ public class TowerDefender : MonoBehaviour
     void Update()
     {
         TrackTarget();
+
     }
 
     private void OnTriggerStay2D(Collider2D CollisionObject)
@@ -45,6 +49,17 @@ public class TowerDefender : MonoBehaviour
             TargetInRage = false;
         }
 
+    }
+
+    public int TakeDamage(int Damage)
+    {
+        CurrentHealth -= Damage;
+        if(CurrentHealth <= 0)
+        {
+            Destroy(this.gameObject); 
+            return 0;
+        }
+        return CurrentHealth;
     }
 
     protected void TrackTarget()
