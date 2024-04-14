@@ -4,10 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Minion
-  - Wall
-  - Last Target
-  - Tower
+  - Map
   layers:
   - Default
   - TransparentFX
@@ -15,11 +12,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
-  - Wall
-  - Last Target
-  - Minion
-  - Tower
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
