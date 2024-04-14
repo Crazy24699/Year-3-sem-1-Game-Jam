@@ -997,11 +997,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a9e4e445113b040860141c60b046de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 10
+  MaxHealth: 11000
   CurrentHealth: 0
   WallDamage: 9
   CurrentMoveSpeed: 0
-  Destination: {fileID: 0}
+  Destination: {fileID: 234458805}
   DeathParticle: {fileID: 3588803570721945656, guid: 8e8e5174a1aa7344e96e77af9a99ab32, type: 3}
   AttackStarted: 0
 --- !u!1 &234458804
@@ -2989,7 +2989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bed9226add93641b50e9c55da2ef46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedMinion: {fileID: 2099429310}
+  SelectedMinion: {fileID: 196866695}
+  PathFinder: {fileID: 0}
   CurrentBodies: 0
   SpawnNum: 0
   SpawningCords: {x: 0, y: 0, z: 0}
