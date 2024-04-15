@@ -16,5 +16,8 @@ public class CameraMove : MonoBehaviour
         camera.orthographicSize += -Input.mouseScrollDelta.y;
         //Debug.Log(Input.mouseScrollDelta);
     }
-
+    private void Start()
+    {
+        transform.position = ResourceScript.instance.playerPos;
+    }
 }

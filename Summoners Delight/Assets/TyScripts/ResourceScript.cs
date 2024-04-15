@@ -22,17 +22,21 @@ public class ResourceScript : MonoBehaviour
     public bool won = false;    //bool checking if the game is won
 
     public TownScript currentBesiegedTown;  //the current besieged town for level reset
+    public int currentBesiegedTownID;
+
+    public Vector2 playerPos;
     public static ResourceScript instance { get; private set; } //singleton implementation
 
     private void Awake()
     {
-        if(instance != null && instance != this)
+        if (instance == null)
         {
-            Destroy(this);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            instance = this;
+            Destroy(gameObject);
         }
     }
     private void Update()
@@ -76,6 +80,10 @@ public class ResourceScript : MonoBehaviour
     public void IncreaseGoldMult(int increaseAmount)
     {
         goldMult += increaseAmount;
+    }
+    public void AddGold(float addedGold)
+    {
+        gold += addedGold;
     }
 
     //gameover logic check

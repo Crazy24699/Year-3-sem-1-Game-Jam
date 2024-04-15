@@ -12,7 +12,7 @@ public class MoveHorde : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.position = ResourceScript.instance.playerPos;
     }
 
     // Update is called once per frame
@@ -32,6 +32,6 @@ public class MoveHorde : MonoBehaviour
                 moving = false;
             }
         }
-        
+        ResourceScript.instance.playerPos = transform.position;
     }
 }

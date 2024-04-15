@@ -7,12 +7,18 @@ public class TownManagerScript : MonoBehaviour
     public TownScript[] towns;
     public bool[] conqueredTowns;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         towns = GetComponentsInChildren<TownScript>();
+    }
+    void Start()
+    {
+        
+    }
+    private void OnEnable()
+    {
         SetTownStates();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -27,6 +33,7 @@ public class TownManagerScript : MonoBehaviour
             {
                 conqueredTowns[i] = towns[i].conquered;
             }
+            ResourceScript.instance.townStates = conqueredTowns;
         }else
         {
             conqueredTowns = ResourceScript.instance.townStates;
@@ -40,5 +47,17 @@ public class TownManagerScript : MonoBehaviour
             }
         }
         ResourceScript.instance.TotalTowns = towns.Length;
+    }
+    public int GetTownIndex(TownScript town)
+    {
+        int index = 0;
+        for(int i = 0; i < towns.Length; i++)
+        {
+            if(town == towns[i])
+            {
+                index = i; break;
+            }
+        }
+        return index;
     }
 }
