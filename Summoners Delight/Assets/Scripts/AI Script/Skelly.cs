@@ -91,6 +91,7 @@ public class Skelly : MinionBase
                 }
             }
             i++;
+            AudioManager.instance.PlaySound("Attack");
             yield return new WaitForSeconds(0.55f);
             if (i == 3)
             {

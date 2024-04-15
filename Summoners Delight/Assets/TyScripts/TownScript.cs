@@ -16,7 +16,7 @@ public class TownScript : MonoBehaviour
     public Sprite conqueredCity;
     public SpriteRenderer renderer;
     public TownManagerScript manager;
-
+    public int bodyCost;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -42,6 +42,7 @@ public class TownScript : MonoBehaviour
     {
         ResourceScript.instance.currentBesiegedTown = this;
         ResourceScript.instance.currentBesiegedTownID = townID;
+        ResourceScript.instance.bodies -= bodyCost;
         //loads the siege scene
         SceneManager.LoadScene(siegeScene);
     }

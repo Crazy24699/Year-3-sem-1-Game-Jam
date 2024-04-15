@@ -26,6 +26,6 @@ public class WinLossScreen : MonoBehaviour
     }
     public void RestartButton()
     {
-        SceneManager.LoadScene("MapScene");
+        SceneManager.LoadScene("MainMenu");
     }
 }

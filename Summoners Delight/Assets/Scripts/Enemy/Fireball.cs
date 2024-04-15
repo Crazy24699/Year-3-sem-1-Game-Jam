@@ -13,6 +13,7 @@ public class Fireball : ProjectileBase
         if (CollisionObject.CompareTag("Minion"))
         {
             CollisionObject.GetComponent<MinionBase>().HandleHealth(-Damage);
+            AudioManager.instance.PlaySound("Fire");
             Destroy(this.gameObject);
         }
     }

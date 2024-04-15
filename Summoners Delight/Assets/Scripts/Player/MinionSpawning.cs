@@ -48,6 +48,7 @@ public class MinionSpawning : MonoBehaviour
             }
             if (!SpawningStarted && CurrentBodies > 0) 
             {
+                AudioManager.instance.PlaySound("Thunk");
                 SpawningCords = MouseCords;
                 StartCoroutine(SpawnDelay());
             }
